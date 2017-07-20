@@ -2,6 +2,7 @@ class Event < ApplicationRecord
 
   before_validation :generate_friendly_id, :on => :create
   belongs_to :category, :optional => true
+  has_many :tickets, :dependent => :destroy
 
   validates_presence_of :name
   STATUS = ["draft", "public", "private"]

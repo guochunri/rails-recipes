@@ -1,7 +1,7 @@
 class Admin::UsersController < AdminController
 
   def index
-    @users = User.all
+    @users = User.includes(:groups).all  #避免 N+1 Query 效能问题
   end
 
   def edit
@@ -22,6 +22,7 @@ class Admin::UsersController < AdminController
 
   def user_params
     params.require(:user).permit(:email)
+    params.require(:user).permit(:email, :group_ids => [])
   end
 
 end

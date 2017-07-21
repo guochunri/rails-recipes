@@ -9,6 +9,8 @@ class Event < ApplicationRecord
   STATUS = ["draft", "public", "private"]
   validates_inclusion_of :status, :in => STATUS
 
+  include RankedModel
+  ranks :row_order
 
   def to_param
     self.friendly_id

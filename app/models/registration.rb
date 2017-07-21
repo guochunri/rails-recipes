@@ -32,4 +32,7 @@ class Registration < ApplicationRecord
       current_step == 3 || status == "confirmed"  # 做到第三步，或最后状态是 confirmed 时需要验证
     end
 
+    scope :by_status, ->(s){ where( :status => s ) }
+    scope :by_ticket, ->(t){ where( :ticket_id => t ) }
+
 end

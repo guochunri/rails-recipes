@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   before_validation :generate_friendly_id, :on => :create
   belongs_to :category, :optional => true
   has_many :tickets, :dependent => :destroy
+  has_many :registrations, :dependent => :destroy
   accepts_nested_attributes_for :tickets, :allow_destroy => true, :reject_if => :all_blank
 
   validates_presence_of :name

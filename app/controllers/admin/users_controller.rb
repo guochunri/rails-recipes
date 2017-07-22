@@ -1,5 +1,7 @@
 class Admin::UsersController < AdminController
 
+  before_action :require_admin!
+  
   def index
     @users = User.includes(:groups).all  #避免 N+1 Query 效能问题
   end

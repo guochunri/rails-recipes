@@ -7,6 +7,7 @@ class Registration < ApplicationRecord
     belongs_to :event
     belongs_to :ticket
     belongs_to :user, :optional => true
+    has_paper_trail
 
     before_validation :generate_uuid, :on => :create
 

@@ -56,6 +56,7 @@ gem 'rubyzip'
 gem 'axlsx'
 gem 'axlsx_rails'
 gem 'premailer-rails'
+gem 'sidekiq'
 
 
 group :development, :test do
